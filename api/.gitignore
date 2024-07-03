@@ -1,0 +1,15 @@
+# Python 관련
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 환경 설정 파일
+.env
+.DS_Store
