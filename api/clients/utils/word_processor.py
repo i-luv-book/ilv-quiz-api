@@ -1,4 +1,6 @@
 import re
+import api.schemas.word as word_schema
+
 from typing import List, Dict
 
 # 응답 단어 데이터 가공
@@ -17,13 +19,17 @@ def parseWords(data: str) -> List[Dict[str, str]]:
   for line in data.strip().split('\n'):
     match = pattern.match(line.strip())
     if match:
-      word_number = int(match.group(1))
+      word_number = match.group(1)
       word = match.group(2)
       translation = match.group(3)
       word_list.append({
-          "word_number": word_number,
+          "word_number": int(word_number),
           "word": word,
           "translation": translation
       })
   
-  return word_list
+  # Word 객체 리스트 생성
+  words = [word_schema.Word(num=item["word_number"], voca=item["word"], translation=item["translation"]) for item in word_list]
+    
+  # WordList 객체 생성 및 반환
+  return word_schema.WordList(words=words)

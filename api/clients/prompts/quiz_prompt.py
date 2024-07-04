@@ -124,12 +124,6 @@ class QuizPromptGenerator:
   ---
   Answer) True/False
   
-  ### 2-4. Blank Question's Format:
-  ## [Quiz number] - [Type of Quiz] & Blank
-  Question) [Pre-blank part of the question] ___ ([Hints for Answer(Optional)]) [Post-blank part of the question]
-  ---
-  Answer) [Answer]
-  
   # Example1(High-Level Quiz)
   - Level : High-Level
   - English-Fairytale : ...
@@ -190,12 +184,12 @@ class QuizPromptGenerator:
   ---
   Answer) B
 
-  ## 6 - Grammar Quiz & Blank
+  ## 6 - Grammar Quiz & Short Answer
   Question) Bobbie and his family ___ (go) on a trip to Indiana in 1923.
   ---
   Answer) went
 
-  ## 7 - Grammar Quiz & Blank
+  ## 7 - Grammar Quiz & Short Answer
   Question) Bobbie walked ___ (for/during) 6 months to get home.
   ---
   Answer) for
@@ -238,7 +232,7 @@ class QuizPromptGenerator:
   ---
   Answer) A
 
-  ## 2 - Reading Comprehension Quiz & Blank
+  ## 2 - Reading Comprehension Quiz & Short Answer
   Question) Milo saw a fly ___.
   ---
   Answer) on the ceiling
@@ -287,7 +281,7 @@ class QuizPromptGenerator:
   ---
   Answer) B
 
-  ## 7 - Voca Quiz & Blank
+  ## 7 - Voca Quiz & Short Answer
   Question) Fill in the blank: The mouse shared stories of ___ (용감) with his friends.
   ---
   Answer) bravery
