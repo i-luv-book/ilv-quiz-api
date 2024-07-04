@@ -41,10 +41,10 @@ quizzesExample = {
             "question": "\"Elephant\"에 맞는 이모티콘을 고르시오.",
             "answer": "C",
             "options": [
-                {"option": "🌟"},
-                {"option": "🐬"},
-                {"option": "🐘"},
-                {"option": "🦖"}
+                "🌟",
+                "🐬",
+                "🐘",
+                "🦖"
             ]
         },
         {
