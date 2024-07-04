@@ -10,7 +10,7 @@ class Quiz(BaseModel):
     format: str
     question: str
     answer: str
-    options: Optional[List[QuizOption]]
+    options: Optional[List[QuizOption]] = None
 
 class QuizList(BaseModel):
     quizzes: List[Quiz]

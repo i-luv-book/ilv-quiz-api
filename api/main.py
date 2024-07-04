@@ -25,7 +25,7 @@ quizzesExample = {
             "format": "Short Answer",
             "question": "Echo ___ (have) a baby named Ely in 1990.",
             "answer": "had",
-            "options": None
+            "options": "null"
         },
         {
             "quiz_num": 3,
@@ -46,7 +46,7 @@ quizzesExample = {
             "format": "Short Answer",
             "question": "Listen to the pronunciation and write down the correct answer. \"Ely\"",
             "answer": "Ely",
-            "options": None
+            "options": "null"
         },
     ]
 }
