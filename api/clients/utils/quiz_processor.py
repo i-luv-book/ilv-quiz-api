@@ -46,7 +46,12 @@ def parseQuizzes(quiz_data: List[str]) -> List[Dict[str, Union[str, List[str]]]]
       if options:
         # 객관식 문제의 선택지 파싱
         option_lines = options.strip().split('\n')
-        quiz_dict["options"] = [quiz_schema.QuizOption(option=opt.strip()) for opt in option_lines]
+        opt_list = []
+        
+        for opt in option_lines:
+          plainOption = opt.replace(' ', '')
+          opt_list.append(plainOption.split('.')[1])
+        quiz_dict["options"] = opt_list
 
       parsed_data.append(quiz_dict)
 
