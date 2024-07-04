@@ -1,9 +1,23 @@
 from fastapi import FastAPI, HTTPException, Depends, Body
 from .clients.gpt_client import GPTClient
+from fastapi.middleware.cors import CORSMiddleware
 
 import api.schemas.tale as tale_schema
 
 app = FastAPI()
+
+# CORS 설정
+origins = [
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,       # 접근 허용할 도메인 지정
+    allow_credentials=True,    # 인증 정보(쿠키 등)를 허용할지 여부를 설정
+    allow_methods=["*"],       # 허용할 HTTP 메서드를 지정, 여기서는 모든 메서드 허용
+    allow_headers=["*"],       # 허용할 HTTP 헤더를 지정, 여기서는 모든 헤더 허용
+)
 
 # GPTClient 
 def get_gpt_client():
