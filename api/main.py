@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, Body
 from .clients.gpt_client import GPTClient
 
 import api.schemas.tale as tale_schema
@@ -8,6 +8,13 @@ app = FastAPI()
 # GPTClient 
 def get_gpt_client():
     return GPTClient()
+
+# 요청 예제
+taleInfoExample = {
+    "level": "Low/Medium/High-Level",
+    "title": "동화 제목",
+    "content": "동화 내용"
+}
 
 # Responses's Example
 quizzesExample = {
@@ -68,7 +75,7 @@ wordsExample = {
 
 # 퀴즈 생성 API
 @app.post("/quizzes", responses={200: {"description": "Successful Response", "content": {"application/json": {"example": quizzesExample}}}})
-async def createQuizzes(taleInfo : tale_schema.TaleInfo, gptClient: GPTClient = Depends(get_gpt_client)):
+async def createQuizzes(taleInfo : tale_schema.TaleInfo = Body(..., example=taleInfoExample), gptClient: GPTClient = Depends(get_gpt_client)):
   try:
       return await gptClient.requestQuizzes(taleInfo)
   except Exception as e:
@@ -76,7 +83,7 @@ async def createQuizzes(taleInfo : tale_schema.TaleInfo, gptClient: GPTClient = 
 
 # 단어 생성 API
 @app.post("/words", responses={200: {"description": "Successful Response", "content": {"application/json": {"example": wordsExample}}}})
-async def createWords(taleInfo : tale_schema.TaleInfo, gptClient: GPTClient = Depends(get_gpt_client)):
+async def createWords(taleInfo : tale_schema.TaleInfo = Body(..., example=taleInfoExample), gptClient: GPTClient = Depends(get_gpt_client)):
   try:
       return await gptClient.requestWords(taleInfo)
   except Exception as e:
