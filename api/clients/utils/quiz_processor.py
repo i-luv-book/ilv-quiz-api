@@ -1,4 +1,6 @@
 import re
+import api.schemas.quiz as quiz_schema
+
 from typing import List, Dict, Union
 
 # 응답 퀴즈 데이터 가공
@@ -44,8 +46,10 @@ def parseQuizzes(quiz_data: List[str]) -> List[Dict[str, Union[str, List[str]]]]
       if options:
         # 객관식 문제의 선택지 파싱
         option_lines = options.strip().split('\n')
-        quiz_dict["options"] = [opt.strip() for opt in option_lines]
+        quiz_dict["options"] = [quiz_schema.QuizOption(option=opt.strip()) for opt in option_lines]
 
       parsed_data.append(quiz_dict)
 
-  return parsed_data
+  # 최종 QuizList 파싱
+  quizzes = [quiz_schema.Quiz(**quiz) for quiz in parsed_data]
+  return quiz_schema.QuizList(quizzes=quizzes)
