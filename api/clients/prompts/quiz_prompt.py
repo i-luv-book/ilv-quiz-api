@@ -82,7 +82,7 @@ class QuizPromptGenerator:
   # Constraint
   1. Follow the composition and sequence of the 10 quizzes as described in 'Guidelines for Quiz Generation'.
   2. All questions and options should be in English, except for Low-Level quizzes.
-  3. You can make each quiz in 4 formats: multiple choice, short answer, true/false, and blank question. But, all Low-Level quizzes must be multiple choice questions or true/false questions, where the questions must be in Korean and options are free to suit the question..
+  3. You can make each quiz in 4 formats: multiple choice, short answer, true/false. But, all Low-Level quizzes must be multiple choice questions or true/false questions, where the questions must be in Korean and options are free to suit the question..
   4. Due to the nature of the Creativity question, fix the answer as "None".
   5. At Listening Quiz, put the text that will tell you the pronunciation in the Question.
   6. At Listening Quiz, questions also consist of format, [Explanation] "[Words or questions to listen to]".(Example: Listen to the pronunciation and choose or write down the correct answer. "What did he put into the bag", 들려주는 단어의 발음을 알맞게 고르시오. "Cave")
