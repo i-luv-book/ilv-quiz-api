@@ -5,22 +5,23 @@ from typing import List, Dict, Union
 
 # 응답 퀴즈 데이터 가공
 def processQuizList(llmResponse):
+  print(llmResponse)
   return parseQuiz(llmResponse)
 
 # 객관식 파싱
 def parseOption(data) :
   options = []
 
-  optionBlocks = data.replace(" ", "").split("|")
+  optionBlocks = data.split("|")
   for block in optionBlocks:
-    options.append(block.split(".")[1])
+    options.append(block.strip().split(". ")[1])
 
   return options
 
 # 퀴즈 파싱
 def parseQuiz(data):
   pattern = re.compile(
-    r'^\s*## (?P<quiz_num>\d+)\n'
+    r'^\s*## (?P<quiz_num>.+?)\n'
     r'^\s*Type: (?P<quiz_type>.+?)\n'
     r'^\s*Format: (?P<format>.+?)\n'
     r'^\s*Question: (?P<question>.+?)\n'
