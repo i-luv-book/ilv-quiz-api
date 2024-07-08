@@ -5,7 +5,6 @@ from typing import List, Dict, Union
 
 # 응답 퀴즈 데이터 가공
 def processQuizList(llmResponse):
-  print(llmResponse)
   return parseQuiz(llmResponse)
 
 # 객관식 파싱
@@ -44,7 +43,7 @@ def parseQuiz(data):
     else:
       quiz['options'] = parseOption(quiz['options'])
     # 답
-    if quiz['answer'] == "None" or "None\n":
+    if quiz['answer'] == "None" or quiz['answer'] == "None\n":
       quiz['answer'] = None
     else :
       quiz['answer'] = quiz['answer'].strip()
