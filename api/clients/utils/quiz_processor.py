@@ -44,7 +44,7 @@ def parseQuiz(data):
     else:
       quiz['options'] = parseOption(quiz['options'])
     # 답
-    if quiz['answer'] == 'None':
+    if quiz['answer'] == "None" or "None\n":
       quiz['answer'] = None
     else :
       quiz['answer'] = quiz['answer'].strip()
