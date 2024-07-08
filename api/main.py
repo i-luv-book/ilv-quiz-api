@@ -35,40 +35,36 @@ quizzesExample = {
     "quizzes": [
         {
             "quiz_num": 1,
-            "type": "Reading Comprehension Quiz",
+            "quiz_type": "Reading Comprehension Quiz",
             "format": "True/False",
-            "question": "케냐에 특별한 코끼리가 살았어요.",
-            "answer": "True"
-        },
-        {
-            "quiz_num": 2,
-            "type": "Grammar Quiz",
-            "format": "Short Answer",
-            "question": "Echo ___ (have) a baby named Ely in 1990.",
-            "answer": "had",
-            "options": "null"
+            "question": "에코라는 코끼리가 아기를 두고 떠났어요.",
+            "pronunciation_or_voca": "null",
+            "options": "null",
+            "answer": "False"
         },
         {
             "quiz_num": 3,
-            "type": "Voca Quiz",
+            "quiz_type": "Voca Quiz",
             "format": "Multiple Choice",
-            "question": "\"Elephant\"에 맞는 이모티콘을 고르시오.",
-            "answer": "C",
+            "question": "다음 단어에 맞는 이모티콘을 고르세요.",
+            "pronunciation_or_voca": "Elephant",
             "options": [
-                "🌟",
-                "🐬",
                 "🐘",
-                "🦖"
-            ]
+                "🐬",
+                "🦖",
+                "😀"
+            ],
+            "answer": "A"
         },
         {
-            "quiz_num": 4,
-            "type": "Listening Quiz",
+            "quiz_num": 10,
+            "quiz_type": "Creativity Quiz",
             "format": "Short Answer",
-            "question": "Listen to the pronunciation and write down the correct answer. \"Ely\"",
-            "answer": "Ely",
-            "options": "null"
-        },
+            "question": "엘리와 같이 멋진 코끼리가 되어 무엇을 해보고 싶나요?",
+            "pronunciation_or_voca": "null",
+            "options": "null",
+            "answer": "null"
+        }
     ]
 }
 

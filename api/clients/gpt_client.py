@@ -23,7 +23,7 @@ class GPTClient:
     quizSystemPrompt = quizPromptGenerator.generateQuizSystemPrompt()
     quizUserPrompt = quizPromptGenerator.processQuizUserPrompt(taleInfo)  # 프롬프트 가공
     
-    response = await self.get_completion(settings.OPENAI_QUIZ_MODEL, quizSystemPrompt, quizUserPrompt)  #  응답 가공
+    response = await self.get_completion(settings.OPENAI_WORD_MODEL, quizSystemPrompt, quizUserPrompt)  #  응답 가공, TODO: 2024/07/09 파인튜닝된 모델로 변경하기
     return quizzesProcessor.processQuizList(response)
   
   # 단어장 요청
