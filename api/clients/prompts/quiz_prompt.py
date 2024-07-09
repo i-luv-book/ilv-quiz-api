@@ -87,7 +87,7 @@ class QuizPromptGenerator:
   5. The answer to all Creativity questions is fixed as “None”, and the format is fixed as a Short Answer Question.
   6. For Listening and Voca Quiz, specify ‘Pronunciation or Voca’. For other Quiz Types, set ‘Pronunciation or Voca’ as “None”.
   7. If the quiz is not in multiple choice format, set ‘Options’ as “None”.
-  8. In Voca Quiz, don't put words that come in 'Pronunciation or Voca' into 'Question.' (Use expressions such as 'following word.', '다음 단어', etc.)
+  8. In the 'Question' of the Voca quiz, express the word for 'Pronunciation or Voca' instead as 'Following Word(s)' or '다음 단어'.
 
 
   # Quizzes' Overall Formats
@@ -148,6 +148,7 @@ class QuizPromptGenerator:
   | Title  | Title of Example's English |
   | Level  | High-Level             |
 
+  # Quiz
   ## 1
   Type: Reading Comprehension Quiz
   Format: Multiple Choice
@@ -303,11 +304,11 @@ class QuizPromptGenerator:
 
   ## 9
   Type: Listening Quiz
-  Format: Short Answer
-  Question: Listen to the pronunciation and write down the correct word.
+  Format: Multiple Choice
+  Question: Listen to the pronunciation and choose the correct word.
   Pronounciation or Voca: Jewel
-  Options: None
-  Answer: Jewel
+  Options: A. Jewel | B. Wise | C. Curious | D. Scared
+  Answer: A
 
   ## 10
   Type: Creativity Quiz
