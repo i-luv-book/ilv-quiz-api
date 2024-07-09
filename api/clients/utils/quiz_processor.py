@@ -1,14 +1,8 @@
 import re
 import api.schemas.quiz as quiz_schema
-import logging
-
-# 로깅 설정
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 # 응답 퀴즈 데이터 가공
 def processQuizList(llmResponse):
-  logger.info(llmResponse)
   return parseQuiz(llmResponse)
 
 # 객관식 파싱
@@ -39,15 +33,15 @@ def parseQuiz(data):
     quiz = match.groupdict()
 
     # 발음 및 단어
-    if quiz['pronunciation_or_voca'] == 'None':
+    if quiz['pronunciation_or_voca'] == 'None' or quiz['pronunciation_or_voca'] == None:
       quiz['pronunciation_or_voca'] = None
     # 객관식 번호
-    if quiz['options'] == 'None':
+    if quiz['options'] == 'None' or quiz['options'] == None:
       quiz['options'] = None
     else:
       quiz['options'] = parseOption(quiz['options'])
     # 답
-    if quiz['answer'] == "None" or quiz['answer'] == "None\n":
+    if quiz['answer'] == "None" or quiz['answer'] == "None\n" or quiz['answer'] == None:
       quiz['answer'] = None
     else :
       quiz['answer'] = quiz['answer'].strip()
