@@ -1,10 +1,14 @@
 import re
 import api.schemas.quiz as quiz_schema
+import logging
 
-from typing import List, Dict, Union
+# 로깅 설정
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # 응답 퀴즈 데이터 가공
 def processQuizList(llmResponse):
+  logger.info(llmResponse)
   return parseQuiz(llmResponse)
 
 # 객관식 파싱
