@@ -20,14 +20,14 @@ def parseOption(data) :
 # 퀴즈 파싱
 def parseQuiz(data):
   pattern = re.compile(
-    r'^\s*## (?P<quiz_num>.+?)\n'
-    r'^\s*Type: (?P<quiz_type>.+?)\n'
-    r'^\s*Format: (?P<format>.+?)\n'
-    r'^\s*Question: (?P<question>.+?)\n'
-    r'^\s*Pronunciation or Voca: (?P<pronunciation_or_voca>.+?)\n'
-    r'^\s*Options: (?P<options>.+?)\n'
-    r'^\s*Answer: (?P<answer>.+?)(?=\n## \d|\Z)',
-      re.MULTILINE | re.DOTALL
+    r'^\s*## (?P<quiz_num>\d+)\s*\n'
+    r'^\s*Type: (?P<quiz_type>.+?)\s*\n'
+    r'^\s*Format: (?P<format>.+?)\s*\n'
+    r'^\s*Question: (?P<question>.+?)\s*\n'
+    r'^\s*Pronunciation or Voca: (?P<pronunciation_or_voca>.+?)\s*\n'
+    r'^\s*Options: (?P<options>.+?)\s*\n'
+    r'^\s*Answer: (?P<answer>.+?)(?=\n\s*## \d|\Z)',
+    re.MULTILINE | re.DOTALL
   )
 
   parsedQuizzes = []
