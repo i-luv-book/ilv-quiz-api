@@ -1,8 +1,6 @@
 import re
 import api.schemas.quiz as quiz_schema
 
-from typing import List, Dict, Union
-
 # 응답 퀴즈 데이터 가공
 def processQuizList(llmResponse):
   return parseQuiz(llmResponse)
@@ -24,9 +22,9 @@ def parseQuiz(data):
     r'^\s*Type: (?P<quiz_type>.+?)\s*\n'
     r'^\s*Format: (?P<format>.+?)\s*\n'
     r'^\s*Question: (?P<question>.+?)\s*\n'
-    r'^\s*Pronunciation or Voca: (?P<pronunciation_or_voca>.+?)\s*\n'
-    r'^\s*Options: (?P<options>.+?)\s*\n'
-    r'^\s*Answer: (?P<answer>.+?)(?=\n\s*## \d|\Z)',
+    r'^\s*(?:Pronunciation or Voca: (?P<pronunciation_or_voca>.+?)\s*\n)?'
+    r'^\s*(?:Options: (?P<options>.+?)\s*\n)?'
+    r'^\s*(?:Answer: (?P<answer>.+?)(?=\n\s*## \d|\Z))?',
     re.MULTILINE | re.DOTALL
   )
 
@@ -35,15 +33,15 @@ def parseQuiz(data):
     quiz = match.groupdict()
 
     # 발음 및 단어
-    if quiz['pronunciation_or_voca'] == 'None':
+    if quiz['pronunciation_or_voca'] == None or "None" in quiz['pronunciation_or_voca']:
       quiz['pronunciation_or_voca'] = None
     # 객관식 번호
-    if quiz['options'] == 'None':
+    if quiz['options'] == None or 'None' in quiz['options']:
       quiz['options'] = None
     else:
       quiz['options'] = parseOption(quiz['options'])
     # 답
-    if quiz['answer'] == "None" or quiz['answer'] == "None\n":
+    if quiz['answer'] == None or "None" in quiz['answer']:
       quiz['answer'] = None
     else :
       quiz['answer'] = quiz['answer'].strip()

@@ -44,7 +44,7 @@ class QuizPromptGenerator:
   | Reading Comprehension | 2 simple/easy content-checking questions            |
   | Voca Quiz             | 3 questions, which choose the appropriate emoticon of the options according to an English word |
   | Listening Quiz        | 3 questions, which choose the correct word(not sentence) |
-  | Creativity Quiz       | 2 open-ended and funny questions to stimulate creativity |
+  | Creativity Quiz       | 2 open-ended questions to stimulate creativity      |
 
   ## 2. Medium-Level (8-10 years old)
   - Focus on simple, conversational, and educational words.
@@ -53,19 +53,19 @@ class QuizPromptGenerator:
   | Quiz Type             | Requirements                                        |
   |-----------------------|-----------------------------------------------------|
   | Reading Comprehension | 2 simple/easy content-checking questions            |
-  | Voca Quiz             | 5 questions with basic words                        |
+  | Voca Quiz             | 5 various questions with basic words                |
   | Listening Quiz        | 2 questions, which write down or choose the correct answer  |
   | Creativity Quiz       | 1 open-ended question to stimulate creativity       |
 
   ## 3. High-Level (11-13 years old)
   - Children should learn basic English abilities like vocabulary, listening, speaking, reading, and writing skills.
-  - Introduce basic grammar through simple grammar questions, focused on simple number/tense matches, auxiliary verbs, and the components of sentences.
+  - Introduce Grammar quizzes in various parts.
 
   | Quiz Type             | Requirements                                        |
   |-----------------------|-----------------------------------------------------|
   | Reading Comprehension | 3 questions focusing on reasoning or summary        |
   | Voca Quiz             | 2 questions with a mix of basic and application vocabulary |
-  | Grammar Quiz          | 2 simple grammar questions                          |
+  | Grammar Quiz          | 2 various parts of grammar questions                |
   | Listening Quiz        | 2 questions, which write down the correct answer    |
   | Creativity Quiz       | 1 question to organize the overall content          |
 
@@ -74,11 +74,11 @@ class QuizPromptGenerator:
   1. At first, read and understand the provided English story.
   2. The prompts are rather long, so read them carefully and think the guidelines of the Difficulty Level entered.
   3. Generate a total of 10 questions by using step-by-step reasoning.
-  4. Be sure to keep the quizzes' composition for each level and formats.
+  4. Be sure to keep the quizzes' composition for each level and formats.(follow the composition and sequence of the 10 quizzes for each level)
 
 
   # Constraint
-  1. Follow the composition and sequence of the 10 quizzes as described in the ‘Guidelines for Quiz Generation’.
+  1. You must follow the composition and sequence of the 10 quizzes as described in the ‘Guidelines for Quiz Generation’.
   2. All questions and options should be in English, except for Low-Level quizzes which must be in Korean with warm tone.
   3. Each quiz can be made in 3 formats: Multiple Choice, Short Answer, and True/False.
   4. Low-Level quizzes have a set format for each Quiz Type:
@@ -87,7 +87,7 @@ class QuizPromptGenerator:
   5. The answer to all Creativity questions is fixed as “None”, and the format is fixed as a Short Answer Question.
   6. For Listening and Voca Quiz, specify ‘Pronunciation or Voca’. For other Quiz Types, set ‘Pronunciation or Voca’ as “None”.
   7. If the quiz is not in multiple choice format, set ‘Options’ as “None”.
-  8. In the 'Question' of the Voca quiz, express the word for 'Pronunciation or Voca' instead as 'Following Word(s)' or '다음 단어'.
+  8. In the 'Question' of the Voca quiz, express the word for 'Pronunciation or Voca' instead as 'Following Word(s)' or '다음 단어', etc.
 
 
   # Quizzes' Overall Formats
@@ -108,8 +108,7 @@ class QuizPromptGenerator:
 
 
   # Detailed Format of Quizzes
-  ## 1. Multiple Choice Question
-  ---
+  ## Multiple Choice Question :
   \## 1
   Type: [Quiz Type]
   Format: Multiple Choice
@@ -118,8 +117,7 @@ class QuizPromptGenerator:
   Options: A. [Option A] | B. [Option B] | C. [Option C] | D. [Option D]
   Answer: [Answer]
 
-  ## 2. Short Answer Question
-  ---
+  ## Short Answer Question :
   \## 2
   Type: [Quiz Type]
   Format: Short Answer
@@ -128,8 +126,7 @@ class QuizPromptGenerator:
   Options: None
   Answer: None or [Answer]
 
-  ## 3. True/False Question 
-  ---
+  ## True/False Question :
   \## 3
   Type: [Quiz Type]
   Format: True/False
@@ -140,7 +137,6 @@ class QuizPromptGenerator:
 
 
   # Each Level's Examples
-
   ## Example1 : High-Level Quiz
   # Intro
   | Tag    | Content                |
@@ -152,26 +148,26 @@ class QuizPromptGenerator:
   ## 1
   Type: Reading Comprehension Quiz
   Format: Multiple Choice
-  Question: What is the main idea of this tale?
-  Pronunciation or Voca: None
-  Options: A. The skin does the most important job in the body. | B. The skin has as many functions as the brain does. | C. The skin is not only the largest organ but also the strongest. | D. The skin is the largest organ of our body and has many functions.
-  Answer: B
-
-  ## 2
-  Type: Reading Comprehension Quiz
-  Format: Multiple Choice
   Question: What can be inferred from this passage?
   Pronunciation or Voca: None
   Options: A. The skin is more sensitive to heat than to cold. |  B. The skin is the most important orgain in our body. | C. The skin helps us digest food because it is an organ. | D. Wounds will get infected if we don't keep them clean.
   Answer: B
 
+  ## 2
+  Type: Reading Comprehension Quiz
+  Format: Multiple Choice
+  Question: Which is not true about the Galapagos Islands?
+  Pronunciation or Voca: None
+  Options: A. They are a group of 14 islands. |  B. There are many unique species. | C. They were formed by volcanoes in the sea. | D. They are the highest islands in South America.
+  Answer: D
+
   ## 3
   Type: Reading Comprehension Quiz
   Format: Short Answer
-  Question: What name did people give Bobbie after hearing about his journey?
+  Question: Why is excess oil bad for acne?
   Pronunciation or Voca: None
   Options: None
-  Answer: Bobbie the Wonder Dog
+  Answer: Excess oil can block pores.
 
   ## 4
   Type: Voca Quiz
@@ -184,10 +180,10 @@ class QuizPromptGenerator:
   ## 5
   Type: Voca Quiz
   Format: Multiple Choice
-  Question: What is the antonym of the following words in the context of the story?
-  Pronunciation or Voca: confused
-  Options: A. calm | B. surprised | C. angry | D. sad
-  Answer: A
+  Question: What is the meaning of the following word?
+  Pronunciation or Voca: engineer
+  Options: A. a person who writes books | B. a person who teaches children | C. a person who designs and builds machines | D. a person who performs in a circus
+  Answer: C
 
   ## 6
   Type: Grammar Quiz
@@ -199,11 +195,11 @@ class QuizPromptGenerator:
 
   ## 7
   Type: Grammar Quiz
-  Format: Short Answer
-  Question: Bobbie walked ___ (for/during) 6 months to get home.
+  Format: Multiple Choice
+  Question: Bobbie walked ___ 6 months to get home.
   Pronunciation or Voca: None
-  Options: None
-  Answer: for
+  Options: A. for | B. during | C. at | D. after
+  Answer: A
 
   ## 8
   Type: Listening Quiz
@@ -217,9 +213,9 @@ class QuizPromptGenerator:
   Type: Listening Quiz
   Format: Short Answer
   Question: Listen to the pronunciation and write down the correct answer.
-  Pronunciation or Voca: What did other dogs do to Bobbie?
+  Pronunciation or Voca: Where were new routes discovered by the Europeans?
   Options: None
-  Answer: chased
+  Answer: India, China, and the United States
 
   ## 10
   Type: Creativity Quiz
@@ -257,26 +253,26 @@ class QuizPromptGenerator:
   ## 3
   Type: Voca Quiz
   Format: Multiple Choice
-  Question: What is the meaning of the following word?
-  Pronunciation or Voca: Brave
-  Options: A. 무서운 | B. 용감한 | C. 조용한 | D. 지루한
-  Answer: B
-
-  ## 4
-  Type: Voca Quiz
-  Format: Multiple Choice
   Question: Which word describes the following word?
   Pronunciation or Voca : Enchanted
   Options: A. Magical | B. Dark | C. Safe | D. Large
   Answer: A
 
+  ## 4
+  Type: Voca Quiz
+  Format: Short Answer
+  Question: Write down the English expression that fits the following meaning.
+  Pronunciation or Voca: 숙제를 하다
+  Options: None
+  Answer: do homework
+
   ## 5
   Type: Voca Quiz
-  Format: Multiple Choice
-  Question: What is another word for the following word?
-  Pronunciation or Voca: Tiny
-  Options: A. Big | B. Small | C. Loud | D. Short
-  Answer: B
+  Format: Short Answer
+  Question: I have a ___ watch.
+  Pronunciation or Voca: 매우 작은
+  Options: None
+  Answer: tiny
 
   ## 6
   Type: Voca Quiz
@@ -292,7 +288,7 @@ class QuizPromptGenerator:
   Question: What is the meaning of the following word?
   Pronounciation or Voca: Bravery
   Options: None
-  Answer: 용감한
+  Answer: 용감
 
   ## 8
   Type: Listening Quiz
@@ -378,7 +374,7 @@ class QuizPromptGenerator:
   ## 7
   Type: Listening Quiz
   Format: Multiple Choice
-  Question: 들려주는 단어를 알맞게 고르세요. 
+  Question: 들려주는 단어를 알맞게 고르세요.
   Pronunciation or Voca: Rain
   Options: A. Run | B. Roar | C. Read | D. Rain
   Answer: D
@@ -394,7 +390,7 @@ class QuizPromptGenerator:
   ## 9
   Type: Creativity Quiz
   Format: Short Answer
-  Question: 주인공처럼 아끼는 소중한 장난감이 있나요?
+  Question: 여러분은 주인공처럼 아끼는 소중한 장난감이 있나요?
   Pronunciation or Voca: None
   Options: None
   Answer: None
@@ -402,7 +398,154 @@ class QuizPromptGenerator:
   ## 10
   Type: Creativity Quiz
   Format: Short Answer
-  Question: 어린 왕자와 같이 같이 달에서 어떤 모험을 하고 싶나요?
+  Question: 여러분은 어린 왕자와 같이 같이 달에서 어떤 모험을 하고 싶나요?
+  Pronunciation or Voca: None
+  Options: None
+  Answer: None
+  
+  # Additional Examples
+  These are additional examples. Please refer to it when you create a quiz of these types for each level.
+
+  ## Mid-Level Voca Quiz
+  ---
+  ## 1
+  Type: Voca Quiz
+  Format: Multiple Choice
+  Question: What is the meaning of the following word?
+  Pronunciation or Voca: Invented
+  Options: A. 발견한 | B. 발명한 | C. 고친 | D. 버린
+  Answer: B
+
+  ## 2
+  Type: Voca Quiz
+  Format: Short Answer
+  Question: Write down the English expression that fits the following meaning.
+  Pronunciation or Voca: 바람
+  Options: None
+  Answer: wind
+
+  ## 3
+  Type: Voca Quiz
+  Format: Short Answer
+  Question: I move toward the ___ (shore/moon) when the wind blows.
+  Pronunciation or Voca: 해안
+  Options: None
+  Answer: shore
+
+  ## 4
+  Type: Voca Quiz
+  Format: Short Answer
+  Question: Ely’s legs were ___.
+  Pronunciation or Voca: 약한
+  Options: None
+  Answer: weak
+
+  ## 5
+  Type: Voca Quiz
+  Format: Multiple Choice
+  Question: What is the opposite of the following word?
+  Pronunciation or Voca: Weak
+  Options: A. Strong | B. Small | C. Slow | D. Tired
+  Answer: A
+
+  ## 6
+  Type: Voca Quiz
+  Format: Short Answer
+  Question: Write down the English word that matches the following meaning.
+  Pronunciation or Voca: 건강한
+  Options: None
+  Answer: healthy
+
+  ## 7
+  Type: Voca Quiz
+  Format: Multiple Choice
+  Question: What is the meaning of the following word in the story?
+  Pronunciation or Voca: workshop
+  Options: A. A place to eat | B. A place to sleep | C. A place to make things | D. A place to read
+  Answer: C
+
+  ## High-Level Grammar Quiz
+  ---
+  ## 1
+  Type: Grammar Quiz
+  Format: Multiple Choice
+  Question: Choose the correct sentence.
+  Pronunciation or Voca: None
+  Options: A. Dindim goes back to the ocean after he recovers. | B. Dindim going back to the ocean after he recovers. | C. Dindim gone back to the ocean after he recovers. | D. Dindim went back to the ocean after he recovers.
+  Answer: A
+
+  ## 2
+  Type: Grammar Quiz
+  Format: Short Answer
+  Question: Change to passive voice: Maria won many competitions.
+  Pronunciation or Voca: None
+  Options: None
+  Answer: Many competitions were won by Maria.
+
+  ## 3
+  Type: Grammar Quiz
+  Format: Short Answer
+  Question: Everyone in my family loves cheese. (Change to negative form)
+  Pronunciation or Voca: None
+  Options: None
+  Answer: No one in my family loves cheese.
+
+  ## 4
+  Type: Grammar Quiz
+  Format: Short Answer
+  Question: I ___ (appear) in two college plays.
+  Pronunciation or Voca: None
+  Options: None
+  Answer: have appeared
+
+  ## 5
+  Type: Grammar Quiz
+  Format: Multiple Choice
+  Question: Samantha prayed the operation ___ be successful.
+  Pronunciation or Voca: None
+  Options: A. will | B. would | C. should | D. can
+  Answer: B
+  
+  ## Low-Level Reading Comprehension Quiz
+  ---
+  ## 1
+  Type: Reading Comprehension Quiz
+  Format: True/False
+  Question: 이 이야기는 Polly Finnegan 캐릭터를 연기하는 소녀에 관한 이야기예요.
+  Pronunciation or Voca: None
+  Options: None
+  Answer: True
+
+  ## 2
+  Type: Reading Comprehension Quiz
+  Format: True/False
+  Question: 주인공 Peter는 축구를 잘했어요.
+  Pronunciation or Voca: None
+  Options: None
+  Answer: False
+
+  ## Low-Level Creativity Quiz
+  ---
+  ## 1
+  Type: Creativity Quiz
+  Format: Short Answer
+  Question: 여러분도 TV에서 연기하고 싶은 캐릭터가 있나요? 어떤 캐릭터인가요?
+  Pronunciation or Voca: None
+  Options: None
+  Answer: None
+
+  ## 2
+  Type: Creativity Quiz
+  Format: Short Answer
+  Question: 하늘섬은 어떨 것 같이 생겼나요? 여러분의 스케치북을 꺼내 그려보세요!
+  Pronunciation or Voca: None
+  Options: None
+  Answer: None
+
+  ## 3
+  Type: Creativity Quiz
+  Format: Short Answer
+  Question: 여러분은 어떤 악마의 열매를 먹고싶나요?! 그 열매를 먹으면 어떤 기술을 사용할 수 있나요?
   Pronunciation or Voca: None
   Options: None
   Answer: None
