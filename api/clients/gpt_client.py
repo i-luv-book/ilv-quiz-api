@@ -23,7 +23,7 @@ class GPTClient:
     quizSystemPrompt = quizPromptGenerator.generateQuizSystemPrompt()
     quizUserPrompt = quizPromptGenerator.processQuizUserPrompt(taleInfo)  # 프롬프트 가공
     
-    response = await self.get_completion(settings.OPENAI_QUIZ_MODEL, quizSystemPrompt, quizUserPrompt)  #  응답 가공, TODO: 2024/07/09 파인튜닝된 모델로 변경하기
+    response = await self.get_completion(settings.OPENAI_QUIZ_MODEL, quizSystemPrompt, quizUserPrompt, 1.0)  #  응답 가공
     return quizzesProcessor.processQuizList(response)
   
   # 단어장 요청
@@ -31,18 +31,19 @@ class GPTClient:
     wordSystemPrompt = wordPromptGenerator.generateWordSystemPrompt()
     wordUserPrompt = wordPromptGenerator.processWordUserPrompt(taleInfo)  # 프롬프트 가공
    
-    response = await self.get_completion(settings.OPENAI_WORD_MODEL, wordSystemPrompt, wordUserPrompt)   # 응답 가공
+    response = await self.get_completion(settings.OPENAI_WORD_MODEL, wordSystemPrompt, wordUserPrompt, 0.7)   # 응답 가공
     return wordsProcessor.processWordList(response) 
   
   
   # GPT 요청
-  async def get_completion(self, model: str, system_prompt: str, user_prompt: str):
+  async def get_completion(self, model: str, system_prompt: str, user_prompt: str, temp: float):
     data = {
         "model": model,
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
-        ]
+        ],
+        "temperature": temp
     }
     async with httpx.AsyncClient(timeout=None) as client:
         response = await client.post(self.endpoint, headers=self.headers, json=data)
