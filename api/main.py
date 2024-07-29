@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException, Depends, Body
 from .clients.gpt_client import GPTClient
+from .clients.diffusion_client import DiffusionClient
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 
 import api.schemas.tale as tale_schema
 
@@ -22,6 +24,9 @@ app.add_middleware(
 # GPTClient 
 def get_gpt_client():
     return GPTClient()
+# DiffusionClient
+def get_diffusion_client():
+    return DiffusionClient()
 
 # 요청 예제
 taleInfoExample = {
@@ -96,5 +101,14 @@ async def createQuizzes(taleInfo : tale_schema.TaleInfo = Body(..., example=tale
 async def createWords(taleInfo : tale_schema.TaleInfo = Body(..., example=taleInfoExample), gptClient: GPTClient = Depends(get_gpt_client)):
   try:
       return await gptClient.requestWords(taleInfo)
+  except Exception as e:
+      raise HTTPException(status_code=500, detail=str(e))
+  
+# 동화이미지 생성 API
+@app.post("/tale-images")
+async def createWords(diffusionClient: DiffusionClient = Depends(get_diffusion_client)):
+  try:
+      image_stream = diffusionClient.requestImages()
+      return StreamingResponse(image_stream, media_type="image/jpeg")
   except Exception as e:
       raise HTTPException(status_code=500, detail=str(e))
