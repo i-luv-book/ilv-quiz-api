@@ -18,9 +18,9 @@ class DiffusionClient:
           "prompt": talePromptGenerator.processTaleFirstImagePrompt(),
           "output_format": "jpeg",
           "model" : "sd3-large",
+          "seed" : 200,
           "negative_prompt": "painting, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, deformed, ugly, blurry, bad anatomy, bad proportions, extra limbs, cloned face, skinny, glitchy, double torso, extra arms, extra hands, mangled fingers, missing lips, ugly face, distorted face, extra legs, anime"
       },
     )
-  
-    print(response.text)
+
     return BytesIO(response.content)
